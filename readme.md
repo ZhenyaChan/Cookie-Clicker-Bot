@@ -1,1 +1,1 @@
-# Cookie Clicker
+# Automated Game Playing Bot - Cookie Clicker
