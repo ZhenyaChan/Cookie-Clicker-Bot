@@ -48,23 +48,24 @@ five_mins = time.time() + 60 * 5
 # 5 seconds
 timeout = time.time() + 5
 
-# for five minutes
+# Run the bot for 5 minutes
 while True:
     cookie.click()
-    # Every 5 secs
+
+    # Check for upgrades every 5 seconds
     if time.time() > timeout:
-        # get all prices
+        # Get all prices
         items_prices = all_prices()
-        # get current amount of money
+        # Get current amount of money
         available_money = get_money()
 
-        # find the available items to buy
+        # Find the available items to buy
         all_items = {}
         for n in range(len(items_prices)):
             if available_money > items_prices[n]:
                 all_items[items_prices[n]] = items_ids[n]
 
-        # find and click the most expensive item from the list
+        # Find and click the most expensive item from the list
         max_price = max(all_items)
         buy_item_id = all_items[max_price]
         buy_item = driver.find_element(By.ID, value=buy_item_id)
